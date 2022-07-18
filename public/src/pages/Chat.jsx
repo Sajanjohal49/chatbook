@@ -49,8 +49,11 @@ export default function Chat() {
     <>
       <Container>
         <div className="container">
+          
           <Contacts contacts={contacts} changeChat={handleChatChange} />
+         
           {currentChat === undefined ? (
+
             <Welcome />
           ) : (
             <ChatContainer currentChat={currentChat} socket={socket} />
@@ -71,13 +74,30 @@ const Container = styled.div`
   align-items: center;
   background-color: #131324;
   .container {
-    height: 85vh;
-    width: 85vw;
+    height: 93vh;
+    width: 93vw;
     background-color: #00000076;
     display: grid;
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
     }
+    @media (max-width: 580px) {
+      grid-template-columns: 25% 85%;
+      margin: 0px;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+     
+     
+ 
+    }
   }
+  @media (max-width: 580px) {
+    width: 100%;
+      margin: 0px;
+      
+      height: 100vh;
+ 
+    }
 `;

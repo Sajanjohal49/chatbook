@@ -58,6 +58,9 @@ const Container = styled.div`
     padding: 0 1rem;
     gap: 1rem;
   }
+  @media (max-width: 580px) {
+          width: 88%;
+        }
   .button-container {
     display: flex;
     align-items: center;
@@ -96,7 +99,14 @@ const Container = styled.div`
           background-color: #080420;
         }
       }
+      @media (max-width: 580px) {
+        .emoji-picker-react{
+          width: 170px;
+        }
+     
     }
+    }
+    
   }
   .input-container {
     width: 100%;
@@ -135,6 +145,12 @@ const Container = styled.div`
           font-size: 1rem;
         }
       }
+      @media (max-width: 580px) {
+        padding: 0.3rem 1rem;
+        svg {
+          font-size: 0.8rem;
+        }
+        }
       svg {
         font-size: 2rem;
         color: white;

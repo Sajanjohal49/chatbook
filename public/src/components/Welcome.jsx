@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Logout from "./Logout";
 import styled from "styled-components";
 import Robot from "../assets/robot.gif";
 export default function Welcome() {
@@ -12,6 +13,7 @@ export default function Welcome() {
   }, []);
   return (
     <Container>
+      <Logout/>
       <img src={Robot} alt="" />
       <h1>
         Welcome, <span>{userName}!</span>
@@ -33,4 +35,9 @@ const Container = styled.div`
   span {
     color: #4e0eff;
   }
+  @media screen and (min-width: 120px) and (max-width: 580px) {
+          font-size: 10px;
+          
+          width:80%;
+        }
 `;

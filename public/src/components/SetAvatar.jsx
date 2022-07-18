@@ -122,6 +122,7 @@ const Container = styled.div`
       color: white;
     }
   }
+  
   .avatars {
     display: flex;
     gap: 2rem;
@@ -142,6 +143,27 @@ const Container = styled.div`
     .selected {
       border: 0.4rem solid #4e0eff;
     }
+  }
+  @media (max-width: 590px) {
+    gap: 2rem;
+    .title-container {
+    h1 {
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+    }
+  }
+    .avatars{
+      gap:0rem;
+    
+    
+    .avatar {
+      
+      img {
+        height: 3rem;
+        transition: 0.5s ease-in-out;
+      }
+    }}
   }
   .submit-btn {
     background-color: #4e0eff;

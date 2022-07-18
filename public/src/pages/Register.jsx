@@ -89,8 +89,8 @@ export default function Register() {
       <FormContainer>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
-            <img src={Logo} alt="logo" />
-            <h1>snappy</h1>
+            
+            <h1>chatbook</h1>
           </div>
           <input
             type="text"
@@ -193,5 +193,16 @@ const FormContainer = styled.div`
       text-decoration: none;
       font-weight: bold;
     }
+  }
+  @media (max-width: 550px) {
+    form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #00000076;
+    border-radius: 2rem;
+    padding: 2rem;
+  }
+    
   }
 `;

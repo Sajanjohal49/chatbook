@@ -11,15 +11,19 @@ export default function ChatContainer({ currentChat, socket }) {
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
 
-  useEffect(async () => {
-    const data = await JSON.parse(
-      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    );
-    const response = await axios.post(recieveMessageRoute, {
-      from: data._id,
-      to: currentChat._id,
-    });
-    setMessages(response.data);
+  useEffect(() => {
+    async function fetchData() {
+      const data = await JSON.parse(
+        localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      );
+      const response = await axios.post(recieveMessageRoute, {
+        from: data._id,
+        to: currentChat._id,
+      });
+      setMessages(response.data);
+    }
+
+    fetchData();
   }, [currentChat]);
 
   useEffect(() => {
@@ -59,7 +63,7 @@ export default function ChatContainer({ currentChat, socket }) {
         setArrivalMessage({ fromSelf: false, message: msg });
       });
     }
-  }, []);
+  }, );
 
   useEffect(() => {
     arrivalMessage && setMessages((prev) => [...prev, arrivalMessage]);
@@ -82,8 +86,10 @@ export default function ChatContainer({ currentChat, socket }) {
           <div className="username">
             <h3>{currentChat.username}</h3>
           </div>
+          
         </div>
         <Logout />
+       
       </div>
       <div className="chat-messages">
         {messages.map((message) => {
@@ -112,7 +118,7 @@ const Container = styled.div`
   grid-template-rows: 10% 80% 10%;
   gap: 0.1rem;
   overflow: hidden;
-  @media screen and (min-width: 720px) and (max-width: 1080px) {
+  @media screen and (min-width: 120px) and (max-width: 1080px) {
     grid-template-rows: 15% 70% 15%;
   }
   .chat-header {
@@ -135,6 +141,9 @@ const Container = styled.div`
         }
       }
     }
+    @media (max-width:580px) {
+      padding:0  4rem 0 0;
+    }
   }
   .chat-messages {
     padding: 1rem 2rem;
@@ -149,7 +158,9 @@ const Container = styled.div`
         width: 0.1rem;
         border-radius: 1rem;
       }
+      
     }
+    
     .message {
       display: flex;
       align-items: center;
@@ -160,10 +171,14 @@ const Container = styled.div`
         font-size: 1.1rem;
         border-radius: 1rem;
         color: #d1d1d1;
-        @media screen and (min-width: 720px) and (max-width: 1080px) {
+        @media screen and (min-width: 120px) and (max-width: 1080px) {
           max-width: 70%;
         }
+        
       }
+      @media (max-width: 580px) {
+          width: 90%;
+        }
     }
     .sended {
       justify-content: flex-end;
