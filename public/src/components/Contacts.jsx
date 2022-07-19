@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
@@ -22,7 +21,6 @@ export default function Contacts({ contacts, changeChat }) {
       {currentUserImage && currentUserImage && (
         <Container>
           <div className="brand">
-           
             <h3>chatbook</h3>
           </div>
           <div className="contacts">
@@ -66,7 +64,7 @@ export default function Contacts({ contacts, changeChat }) {
 }
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 75% 15%;
+  grid-template-rows: 15% 75% 10%;
   overflow: hidden;
   background-color: #080420;
   .brand {
@@ -78,22 +76,26 @@ const Container = styled.div`
       height: 2rem;
     }
     h3 {
-      color: white;
+      background: linear-gradient(90deg, #fcff9e 0%, #fffcf7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-transform: uppercase;
+      font-size: 2.8vw;
+      font-weight: 400;
     }
   }
-  @media (max-width:666px) {
-    grid-template-rows: 10% 82% 9%;
-    .brand{
-     display: flex;
-     width: 100%;
-    h3 {
-      color: white;
-      text-transform: uppercase;
-      font-size: 14px;
+  @media (max-width: 666px) {
+    grid-template-rows: 15% 75% 10%;
+
+    .brand {
+      display: flex;
+      width: 100%;
+      h3 {
+        text-transform: uppercase;
+        font-size: 4vw;
+        padding-top: 4vh;
+      }
     }
-    }
-    
   }
   .contacts {
     display: flex;
@@ -104,18 +106,16 @@ const Container = styled.div`
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
-        background-color: #ffffff39;
+        background-color: #e87575c8;
         width: 0.1rem;
         border-radius: 1rem;
-       
       }
-     
     }
-    @media (max-width:666px) {
-        .contacts{
-          overflow: hidden;
-        }
+    @media (max-width: 666px) {
+      .contacts {
+        overflow: auto;
       }
+    }
     .contact {
       background-color: #ffffff34;
       min-height: 5rem;
@@ -134,52 +134,56 @@ const Container = styled.div`
       }
       .username {
         h3 {
-          color: white;
+          background: linear-gradient(90deg, #a8feb5 0%, #7ba4eb 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-transform: uppercase;
+          font-size: 1.1vw;
+        
         }
       }
-      @media (max-width: 680px) {
-      gap: 0.1rem;
-      display:grid;
-   margin-right:10%;
-      width: 100px;
-      
-    
-        .avatar {
-        img {
-          height: 1.5rem;
-        }
-      }
-      .username {
-        h3 {
-          color: white;
-          font-size: 14px;
-        }
-      }
-       
-    }
-    @media (max-width: 460px) {
-      gap: 0.1rem;
-      display:grid;
-   margin-right:20%;
-      width: 80%;
-      .avatar {
-        img {
-          height: 1.5rem;
-        }
-      }
-      .username {
-        h3 {
-          color: white;
-          font-size: 10px;
-        }
-      }
-      
-    }
-    .selected {
-      background-color: #9a86f3;
-    }
 
-  }
+      @media (max-width: 680px) {
+        gap: 0.1rem;
+        display: grid;
+        margin-right: 0%;
+        width: 90px;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+
+        .avatar {
+          img {
+            height: 1.5rem;
+          }
+        }
+        .username {
+          h3 {
+            font-size: 3vw;
+          }
+        }
+      }
+      @media (max-width: 300px) {
+        gap: 0.1rem;
+        display: grid;
+        margin-left: 20%;
+        width: 100%;
+        .avatar {
+          img {
+            height: 1.5rem;
+          }
+        }
+        .username {
+          h3 {
+            color: white;
+            font-size: 10px;
+          }
+        }
+      }
+      .selected {
+        background-color: #9a86f3;
+      }
+    }
   }
 
   .current-user {
@@ -188,57 +192,74 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    background: linear-gradient(90deg, #a8feb5 0%, #7ba4eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
     .avatar {
       img {
         height: 4rem;
         max-inline-size: 100%;
       }
       margin-left: 0px;
+          
+          font-size:2vw;
+          color: white;
+          
     }
-    @media (max-width: 560px) {
-      .avatar {
-      img {
-       visibility: hidden;
-      }
-      margin-left: 0px;
-    }}
-    .username {
-      
-      h2 {
-        color: white;
+    @media screen and (min-width: 1080px) {
+      gap: 0.5rem;
+
+      .username {
+        h2 {
+          font-size: 2vw;
+          
+        }
       }
     }
+
     @media screen and (min-width: 120px) and (max-width: 1080px) {
       gap: 0.5rem;
-      
-      
+
       .username {
-       
         h2 {
-          
-          font-size: 0.6rem;
+          font-size: 2vw;
+          color: white;
         }
       }
     }
     @media (max-width: 560px) {
       .current-user {
-    background-color: #0d0d30;
-    display: grid;
-    
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;}
+        background-color: #0d0d30;
+        display: grid;
+
+        justify-content: center;
+        align-items: center;
+        gap: 0.2rem;
+        padding: 5px 0px ;
+      }
       .username {
-        width: 80%;
+        width: 100%;
         h2 {
-       
-          font-size: 0.6rem;
-          margin-left:-25px;
+          font-size: 3.0vw;
+          text-align: center;
+          padding-bottom: 15px;
         }
       }
     }
-   
   }
+  @media (max-width: 560px) {
+    .current-user {
+      display: grid;
 
-
+      .avatar {
+        margin: 0 auto;
+        img {
+          height: 3rem;
+          max-inline-size: 100%;
+        }
+        margin-left: 0px;
+      }
+    }
+  }
 `;

@@ -46,7 +46,7 @@ export default function Chat() {
     setCurrentChat(chat);
   };
   return (
-    <>
+    <Wrapper>
       <Container>
         <div className="container">
           
@@ -59,11 +59,14 @@ export default function Chat() {
             <ChatContainer currentChat={currentChat} socket={socket} />
           )}
         </div>
-      </Container>
-    </>
+     
+    </Container>
+    </Wrapper>
   );
 }
-
+const Wrapper=styled.div`
+  
+`
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -72,7 +75,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
   .container {
     height: 93vh;
     width: 93vw;
@@ -83,21 +86,20 @@ const Container = styled.div`
       grid-template-columns: 35% 65%;
     }
     @media (max-width: 580px) {
-      grid-template-columns: 25% 85%;
-      margin: 0px;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-     
-     
- 
+      grid-template-columns: 32% 68%;
+  
+  height:100vh ;
+  
+    width:100vw;
+  
+    
     }
   }
   @media (max-width: 580px) {
-    width: 100%;
+    
       margin: 0px;
+    
       
-      height: 100vh;
- 
+ height: 100vh;
     }
 `;

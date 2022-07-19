@@ -51,7 +51,7 @@ export default function ChatInput({ handleSendMsg }) {
 const Container = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 5% 95%;
+  grid-template-columns: 15% 85%;
   background-color: #080420;
   padding: 0 2rem;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
@@ -59,8 +59,8 @@ const Container = styled.div`
     gap: 1rem;
   }
   @media (max-width: 580px) {
-          width: 88%;
-        }
+    width: 100%;
+  }
   .button-container {
     display: flex;
     align-items: center;
@@ -76,11 +76,13 @@ const Container = styled.div`
       .emoji-picker-react {
         position: absolute;
         top: -350px;
-        background-color: #080420;
+        background-color: #151515;
         box-shadow: 0 5px 10px #9a86f3;
         border-color: #9a86f3;
+
         .emoji-scroll-wrapper::-webkit-scrollbar {
-          background-color: #080420;
+          background-color: #beb7e7;
+
           width: 5px;
           &-thumb {
             background-color: #9a86f3;
@@ -94,29 +96,30 @@ const Container = styled.div`
         .emoji-search {
           background-color: transparent;
           border-color: #9a86f3;
+          color: white;
         }
         .emoji-group:before {
-          background-color: #080420;
+          background-color: #211b40;
+          border-radius: 5px;
+          padding-left: 5px;
         }
       }
       @media (max-width: 580px) {
-        .emoji-picker-react{
+        .emoji-picker-react {
           width: 170px;
         }
-     
+      }
     }
-    }
-    
   }
   .input-container {
     width: 100%;
-    border-radius: 2rem;
+    border-radius: 5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
     background-color: #ffffff34;
     input {
-      width: 90%;
+      width: 100%;
       height: 60%;
       background-color: transparent;
       color: white;
@@ -131,6 +134,7 @@ const Container = styled.div`
         outline: none;
       }
     }
+
     button {
       padding: 0.3rem 2rem;
       border-radius: 2rem;
@@ -146,11 +150,11 @@ const Container = styled.div`
         }
       }
       @media (max-width: 580px) {
-        padding: 0.3rem 1rem;
+        padding: 0.6rem 1rem;
         svg {
           font-size: 0.8rem;
         }
-        }
+      }
       svg {
         font-size: 2rem;
         color: white;

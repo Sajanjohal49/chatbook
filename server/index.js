@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -33,12 +34,15 @@ app.use("/api/messages", messageRoutes);
 const server = app.listen(port, () =>
   console.log(`Server started on ${port}`)
 );
+
 const io = socket(server, {
+
   cors: {
-    origin: `${port}`,
-    credentials: true,
+    origin: "*"
+    
   },
 });
+
 
 global.onlineUsers = new Map();
 io.on("connection", (socket) => {

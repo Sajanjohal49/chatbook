@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 body,
 button,
 input {
@@ -13,9 +14,9 @@ input {
 }
 
 body {
-  max-height: 100vh;
+ 
   max-width: 120vw;
-  overflow: hidden;
+ 
 }
 
 .Toastify__toast-theme--dark {

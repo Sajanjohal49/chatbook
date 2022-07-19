@@ -118,7 +118,10 @@ const Container = styled.div`
   grid-template-rows: 10% 80% 10%;
   gap: 0.1rem;
   overflow: hidden;
-  @media screen and (min-width: 120px) and (max-width: 1080px) {
+  @media screen and (min-width: 620px) and (max-width: 1080px) {
+    grid-template-rows: 15% 70% 15%;
+  }
+  @media screen and (min-width: 120px) and (max-width: 620px) {
     grid-template-rows: 15% 70% 15%;
   }
   .chat-header {
@@ -142,7 +145,7 @@ const Container = styled.div`
       }
     }
     @media (max-width:580px) {
-      padding:0  4rem 0 0;
+      padding:2rem  1rem 0 0;
     }
   }
   .chat-messages {
@@ -171,25 +174,25 @@ const Container = styled.div`
         font-size: 1.1rem;
         border-radius: 1rem;
         color: #d1d1d1;
-        @media screen and (min-width: 120px) and (max-width: 1080px) {
+        @media screen and (min-width: 720px) and (max-width: 1080px) {
           max-width: 70%;
         }
-        
-      }
-      @media (max-width: 580px) {
-          width: 90%;
+        @media (max-width: 580px) {
+          max-width: 100%;
         }
+      }
+     
     }
     .sended {
       justify-content: flex-end;
       .content {
-        background-color: #4f04ff21;
+        background-color: #5a19f1b3;
       }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        background-color: #9900ff20;
+        background-color: #9a11d9c7;
       }
     }
   }
